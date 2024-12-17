@@ -1,0 +1,161 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.container {
+  height: 80%;
+  width: 80%;
+  background-color: #cbd2d0;
+  padding: 20px 10px;
+  position: relative;
+  border-radius: 20px;
+  padding: 50px;
+}
+
+.heading {
+  color: #22333b;
+  border-bottom: 1px solid #22333b;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.score-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  color: #0c7c59;
+  font-weight: bold;
+}
+
+.score {
+  display: flex;
+  gap: 10px;
+}
+
+.info-box {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-top: 20px;
+  height: 20%;
+}
+
+.info {
+  position: relative;
+  border: 2px solid #22333b;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: white;
+}
+
+.choice-box {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.choices {
+  border: none;
+  padding: 30px 70px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  background-color: rgb(201, 201, 201);
+  color: #cbd2d0;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.1s ease;
+  background-color: #0c7c59;
+}
+
+.choices:hover {
+  background-color: rgba(201, 201, 201, 0.8);
+  color: wheat;
+  background-color: #22333b;
+}
+
+.spinner {
+  position: absolute;
+  display: none;
+  animation: scale 0.5s linear infinite;
+}
+.info-text,
+.spinner {
+  color: #22333b;
+}
+
+.spinner:after {
+  animation: cycle 0.5s linear infinite;
+  content: "";
+}
+
+/* @keyframes scale { */
+/*   0% { */
+/*     transform: scale(2); */
+/*   } */
+/*   100% { */
+/*     transform: scale(1.5); */
+/*   } */
+/* } */
+
+@keyframes cycle {
+  0% {
+    content: "Rock";
+  }
+  20% {
+    content: "Paper";
+  }
+  40% {
+    content: "Scissors";
+  }
+  60% {
+    content: "Rock";
+  }
+  80% {
+    content: "Paper";
+  }
+  100% {
+    content: "Scissors";
+  }
+}
+.winner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  color: #cbd2d0;
+  font-weight: 900;
+  font-size: 4rem;
+  background-color: red;
+  border-radius: 30px;
+  padding: 50px;
+  z-index: 100;
+  animation: abs-scale 0.5s linear 1;
+  display: none;
+}
+
+@keyframes abs-scale {
+  0% {
+    transform: translate(-50%, -50%) scale(2); /* Ensure translate stays constant */
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1); /* End with the same translate */
+  }
+}
